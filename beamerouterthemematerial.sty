@@ -1,44 +1,79 @@
 \mode<presentation>
-
 % Frame title
+
+
 \defbeamertemplate*{frametitle}{material}[1][]
 {
-  \makebox[\linewidth][c]{%
-  \begin{minipage}[t]{\paperwidth}
-    \raggedright
-    \begin{tcolorbox}[colback=primary, enhanced, sharpish corners=all, boxrule=0mm, coltext=textPrimary, %
-                      left=6mm, right=6mm, top=2.6mm, bottom=2mm,%
-                      fuzzy shadow={0mm}{-0.9mm}{0mm}{0.2mm}{shadow!40!BGgrey03}, % bottomSmall
-                      fuzzy shadow={0mm}{-0.8mm}{0mm}{0.2mm}{shadow!20!BGgrey03}, % bottomBig
-                      fuzzy shadow={0mm}{ 0.6mm}{0mm}{0.2mm}{shadow!40!primary}, % topSmall
-                      fuzzy shadow={0mm}{ 0.5mm}{0mm}{0.2mm}{shadow!20!primary}, % topBig
-                      width=\paperwidth, boxsep=2mm]
-   \ifx\insertframesubtitle\@empty%
-        {\usebeamerfont{frametitle} \insertframetitle}
-      \else%
-        {\usebeamerfont{frametitle} \insertframetitle}
-        {\usebeamerfont{framesubtitle} \insertframesubtitle}
-      \fi
-    \end{tcolorbox}
-  \end{minipage}%
-  }%
+  \nointerlineskip
+  \vspace{2.82em}
+  \makebox[\linewidth][c]{
+    \begin{tcolorbox}[colback=transparent, boxrule=-0mm, coltext=textPrimary,%
+      fuzzy shadow={0mm}{-0.9mm}{0mm}{0.2mm}{shadow!40!BGgrey03},
+      height=0cm, width=\paperwidth, boxsep=0mm]
+          {}
+        \end{tcolorbox}
+  }
+  
+  \vspace{-2.89em}
+  \begin{beamercolorbox}[sep=0.9em,ht=3.0em,wd=\paperwidth,shadow=true]{frametitle}
+      \vbox{}\hskip1.5em%
+      {\usebeamerfont{frametitle}\strut\insertframetitle\strut}
+      %
+  \end{beamercolorbox}
+  
+  %\makebox[\linewidth][c]{%
+  %\begin{minipage}[t]{\paperwidth}
+  %  \raggedright
+  %  \begin{tcolorbox}[colback=primary, flushleft upper, enhanced, sharpish corners=all, boxrule=-1mm, coltext=textPrimary, %
+  %                    height=0.8cm,%
+  %  valign=center, top=0.6cm,toprule=0cm,
+  %                    %fuzzy shadow={0mm}{-0.9mm}{0mm}{0.2mm}{shadow!40!BGgrey03}, % bottomSmall
+  %                    width=\paperwidth, boxsep=0mm]
+  % \ifx\insertframesubtitle\@empty%
+  %      {\usebeamerfont{frametitle} \insertframetitle}
+  %    \else%
+  %      {\usebeamerfont{frametitle} \insertframetitle}
+  %      {\usebeamerfont{framesubtitle} \insertframesubtitle}
+  %    \fi
+  %  \end{tcolorbox}
+  %\end{minipage}%
+  %}%
 }
 
 \defbeamertemplate*{footline}{material}
 {
-  \begin{tcolorbox}[colback=primary, boxrule=-1mm, coltext=textPrimary,%
-    left=6mm, right=6mm, top=0mm, bottom=0mm,%
-    fuzzy shadow={0mm}{ 1.6mm}{0mm}{0.2mm}{shadow!40!primary}, % topSmall
-    fuzzy shadow={0mm}{ 1.5mm}{0mm}{0.2mm}{shadow!20!primary}, % topBig
-    width=\paperwidth, boxsep=2mm]
-        \usebeamerfont{framesubtitle}
-        {
-          \hypersetup{colorlinks,   linkcolor=textPrimary}
+  %\vspace{1cm}
+  \makebox[\linewidth][c]{
+    \begin{tcolorbox}[colback=transparent, boxrule=-0mm, coltext=textPrimary,%
+      fuzzy shadow={0mm}{ 0.6mm}{0mm}{0.2mm}{shadow!40!primary}, % topSmall
+      height=3.4em, width=1.2\paperwidth, boxsep=0mm]
+          {}
+        \end{tcolorbox}
+  }
+  \hspace{-14.08cm}
+  \begin{beamercolorbox}[sep=2mm,ht=6.5ex,wd=\paperwidth,shadow=true]{framesubtitle}
+    
+    \usebeamerfont{framesubtitle}{
           \makebox[0pt][l]{\,\insertsection}%
           \hspace*{\fill}\insertshortauthor\hspace*{\fill}
           \llap{\insertframenumber\,/\,\inserttotalframenumber\,}
-        }
-      \end{tcolorbox}
+    }
+    %
+\end{beamercolorbox}
+
+
+  %\begin{tcolorbox}[colback=primary, boxrule=-1.2mm, coltext=textPrimary,%
+  %  valign=center,
+    %fuzzy shadow={0mm}{ 1.5mm}{0mm}{0.2mm}{shadow!20!primary}, % topBig
+  %  height=0.33cm, width=\paperwidth, boxsep=2mm]
+  %      \usebeamerfont{framesubtitle}
+  %      {
+  %        \hypersetup{colorlinks,   linkcolor=textPrimary}
+  %        \makebox[0pt][l]{\,\insertsection}%
+  %        \hspace*{\fill}\insertshortauthor\hspace*{\fill}
+  %        \llap{\insertframenumber\,/\,\inserttotalframenumber\,}
+  %      }
+  %    \end{tcolorbox}
 }
 
 \mode<all>
