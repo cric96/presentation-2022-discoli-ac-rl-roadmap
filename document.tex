@@ -37,7 +37,7 @@
       \item <1-> A top-down global-to-local macro-programming approach to express \highlight{collective} \& \highlight{self-organising} behaviour
       \item <2-> \highlight{Computational field} as a first-class abstraction for expressing system dynamics
       \begin{itemize}
-        \item Computational field is a macro-abstraction that maps a set of devices over time to computational values
+        \item is a macro-abstraction that maps a set of devices over time to computational values
         \item [\success{\faThumbsUp}] \highlight{Functional appraoch}: distributed program expressed as a functional application through computational fields
       \end{itemize}
     \end{itemize}
@@ -64,11 +64,13 @@
     \begin{card}[Gradient]
     \begin{minted}{scala}
 val gradient = rep(Inf)(distance =>
-mux(isCenter){0.0}/*else*/{
+mux(source){0.0}/*else*/{
   includingSelf.
     minHood(nbr{distance} + nbrRange)
 })
     \end{minted}
+    \centering
+    \includegraphics[width=0.7\linewidth]{img/result-gradient.png}
     \end{card}
     \begin{card}[Distributed sensing]
     \begin{minted}{scala}
@@ -78,9 +80,107 @@ val mean =
   collectMean(potential, temperature)
 broadcast(leader, mean)
   \end{minted}  
+  \centering
+  \includegraphics[width=0.68\linewidth]{img/distributed-sensing.png}   
   \end{card}
-    
   \end{multicols}
+\end{frame}
+\begin{frame}{Aggregate Computing -- Execution model}
+  \begin{columns}
+    \begin{column}{0.49\textwidth}
+      \begin{card}[Round Execution]
+        \begin{enumerate}
+          \item \highlight{context acquisition}
+          \begin{itemize}
+            \item sensors data
+            \item messages from neighbours
+            \item local state
+          \end{itemize}
+          \item \highlight{program evaluation} a function from context to \emph{export}
+          \item \highlight{export sharing} to the neighbours
+          \item \highlight{actuations} using export
+        \end{enumerate}
+      \end{card}
+    \end{column}
+    \begin{column}{0.51\textwidth}  
+      \begin{cardTiny}
+        \includegraphics[width=\textwidth]{img/aggregate-agent-control-architecture.drawio.pdf}    
+      \end{cardTiny}
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{Aggregate Computing -- State of the art}
+\begin{card}[Research trends]
+  \begin{itemize}
+    \item \highlight{Coordination algorithms}: \emph{gradients}, leader election (\highlight{S}), distributed sensing, \dots
+    \item \textbf{Execution platform \& non-functional aspects}: Aggregate program deployment (pulverised architecture), collective program scheduling (distributed schedulers) and trust.
+  \end{itemize}
+\end{card}
+\begin{alarm}[Challenges]
+  \begin{itemize}
+    \item The self-healing gradient case:
+    \begin{itemize}
+      \item this algorithm could suffer of several issues:
+      \begin{itemize}
+        \item[\faArrowRight] non-smooth output
+        \item[\faArrowRight] slow-rising value
+        \item[\faArrowRight] speed bias
+      \end{itemize}
+      \item several heuristics \& algorithms (SCR, Flex, BIS, \dots) have be proposed \dots
+      \item \dots but can we \emph{learn} how to handle this situation?
+    \end{itemize}
+  \end{itemize}
+\end{alarm}
+\end{frame}
+\section{Proposed approach}
+\begin{frame}{Reinforcement Learning-based Aggregate Computing}
+\begin{cardTiny}
+  \begin{itemize}
+    \item \highlight{Idea}: maintaning the high-level interface of Aggregate computing
+    \begin{itemize}
+      \item[\faArrowRight] strong fondational discovery (self-stabilisation \& eventual consistency)
+      \item[\faArrowRight] control on application description \& logic
+      \item[\faArrowRight] the programming model ensures \emph{composability}
+    \end{itemize}
+    \item  while use \emph{Reinforcement Learning} for:
+    \begin{itemize}
+      \item[\faArrowRight] increase adaptivness of collective behaviour
+      \item[\faArrowRight] \emph{learn} effective collective strategy \emph{by doing}
+    \end{itemize}
+  \end{itemize}
+\end{cardTiny}
+
+\begin{card}[Integration perspective]
+  \begin{itemize}
+    \item \emph{Coordination algorithms}: learning used to fill \highlight{holes} in a template program with actions determined through search
+    \item Execution framework: learning used as a mechanism to improve non-functional aspects (e.g., computational efficency, \dots)
+  \end{itemize}
+\end{card}
+\end{frame}
+\begin{frame}{Execution Model -- Revised}
+  \begin{columns}
+    \begin{column}{0.49\textwidth}
+      \begin{card}[Round Execution]
+        \begin{itemize}
+          \item The loop ''acquisition -- evaluation -- sharing -- actuation'' remains
+          \item The state and the reward
+          \begin{itemize}
+            \item created from the context (environment)
+          \end{itemize}
+          \item The \emph{policy}
+          \begin{itemize}
+            \item is evaluated along the aggregate program
+            \item produces an action piggy backed on the export
+          \end{itemize}
+        \end{itemize}
+      \end{card}
+    \end{column}
+    \begin{column}{0.57\textwidth}  
+      \begin{cardTiny}
+        \includegraphics[width=\textwidth]{img/aggregate-agent-control-architecture-rl.pdf}    
+      \end{cardTiny}
+    \end{column}
+  \end{columns}
 \end{frame}
 \section{Conclusion}
 \begin{frame}{Conclusion}
