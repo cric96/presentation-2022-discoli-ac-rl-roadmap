@@ -1,5 +1,5 @@
 % ! TeX root = ./document.tex
-\documentclass[9pt, aspectratio=169, handout]{beamer}
+\documentclass[8pt, aspectratio=169, handout]{beamer}
 \input{partials/package.tex}
 \input{partials/theme-configuration.tex}
 \input{partials/title-content.tex}
@@ -34,7 +34,7 @@
   \end{alarm}
 \end{frame}
 
-\begin{frame}{Aggregate Computing}
+\begin{frame}{Field-based coordination with Aggregate Computing}
   \begin{cardTiny}
     \begin{itemize}
       \item <1-> A top-down global-to-local macro-programming approach to express \highlight{collective} \& \highlight{self-organising} behaviour~\cite{DBLP:conf/saso/BealVPD16}
@@ -130,7 +130,7 @@ broadcast(leader, mean)
         \item[\faArrowRight] speed bias
       \end{itemize}
       \item several heuristics \& algorithms (CRF, Flex, BIS, \dots) have been proposed \dots
-      \item \dots but can we \emph{learn} how to handle these situations?
+      \item \dots but can we \emph{learn} how to dynamically handle these issues?
     \end{itemize}
   \end{itemize}
 \end{alarm}
@@ -265,7 +265,9 @@ broadcast(leader, mean)
         \item another with 40 agents in a similar grid
         \item we would check the effect of node size in our solution
       \end{itemize}
-      \item Solution error evaluated as the mean difference from the output produced with Reinforcement Learning and with the oracle
+      \item Solution error evaluated as the mean difference from the output produced with RL and with the oracle
+      \item The simulations\footnote{\url{https://github.com/cric96/experiment-2022-acsos-round-rl}} are performed using Alchemist~\cite{alchemist-jos2013} and ScaFi~\cite{DBLP:conf/isola/CasadeiVAD20} 
+      
     \end{itemize}
   \end{card}  
   \begin{columns}
@@ -279,11 +281,17 @@ broadcast(leader, mean)
   \begin{card}[Results]
     \begin{itemize}
       \item The system eventually learns a policy that has a performance comparable to CRF
-      \item The policy is independent of the nodes that partecipates in the system
-      \item Result are reproducible following the instruction on the code repository\footnote[frame]{\url{https://github.com/cric96/experiment-2022-acsos-round-rl}}
       \begin{itemize}
-        \item The simulations are performed using Alchemist~\cite{alchemist-jos2013} and ScaFi~\cite{DBLP:conf/isola/CasadeiVAD20} 
+        \item the RL solution beats classic gradient after 400 episodes (left picture)
       \end{itemize}
+      \item The policy is independent of the nodes that partecipates in the system
+      \begin{itemize}
+        \item increases programs output faster in both scenarios (yellow line)
+      \end{itemize}
+      %\item Result are reproducible following the instruction on the code repository\footnote[frame]{\url{https://github.com/cric96/experiment-2022-acsos-round-rl}}
+      %\begin{itemize}
+      %  \item The simulations are performed using Alchemist~\cite{alchemist-jos2013} and ScaFi~\cite{DBLP:conf/isola/CasadeiVAD20} 
+      %\end{itemize}
     \end{itemize}
   \end{card}
   \begin{multicols}{3}
