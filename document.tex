@@ -258,7 +258,7 @@ broadcast(leader, mean)
 \framebreak
   \begin{card}[Simulation Setup]
     \begin{itemize}
-      \item 1000 episodes are used to train the policy ($\epsilon-greedy$ policy), 200 episodes to evaluate the performance (i.e., greedy policy)
+      \item 1000 episodes are used to train the policy, 200 episodes to evaluate the performance
       \item The policy is considered in two environments 
       \begin{itemize}
         \item one with 200 agents arranged in a grid
@@ -267,7 +267,7 @@ broadcast(leader, mean)
       \end{itemize}
       \item Solution error evaluated as the mean difference from the output produced with RL and with the oracle
       \item The simulations\footnote{\url{https://github.com/cric96/experiment-2022-acsos-round-rl}} are performed using Alchemist~\cite{alchemist-jos2013} and ScaFi~\cite{DBLP:conf/isola/CasadeiVAD20} 
-      
+      \item Big circles mark source nodes, the color corresponds to the gradient output
     \end{itemize}
   \end{card}  
   \begin{columns}
