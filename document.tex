@@ -152,7 +152,6 @@ broadcast(leader, mean)
     \end{itemize}
   \end{itemize}
 \end{cardTiny}
-
 \begin{card}[Integration perspective]
   \begin{itemize}
     \item \emph{Coordination algorithms}: learning used to fill \highlight{holes} in a template program with actions determined through search (kind of sketching~\cite{solar2008program-synthesis-sketching})
@@ -254,6 +253,26 @@ broadcast(leader, mean)
         \end{itemize}
       \end{itemize}
     \end{itemize}
+  \end{card}
+  \begin{card}[Q-Learning integration (hole)]
+    \begin{minted}[escapeinside=||,mathescape=true]{scala}
+rep((|$s_0, a_0$, $o_0$|)) { // $s_0$, $a_0$ context dependent 
+  case (|$s_{t-1}, a_{t-1}$|, _) => {
+    val Q = sense("Q") // global during training, local during execution
+    val |$o_{t}$| = update(|$o_{t-1}$|, |$a_{t-1}$|) // local action
+    // state from the neighbourhood field program output
+    val |$s_{t}$| = state(nbr(|$o_{t}$|))
+    val |$a_{t}$| = branch(learn) { // actions depends on learn condition
+      val |$r_{t-1}$| = reward(|$o_{t}$|, simulation) // simulation is a global object
+      learning.updateQ(Q, |$s_{t-1}$|, |$a_{t-1}$|, |$r_{t-1}$|, |$s_{t}$|) // Q update
+      |$\sim$| |$\pi_{behavioural}^Q$|(|$s_{t}$|) // sample from a probabilistic distribution
+    } {
+      |$\pi_{target}^Q$|(|$s_t$|) // greedy policy, no sampling is needed
+    }
+  }
+  (|$s_{t}$|, |$a_{t}$|, |$o_{t}$|) 
+}
+    \end{minted}
   \end{card}
 \framebreak
   \begin{card}[Simulation Setup]
