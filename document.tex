@@ -68,8 +68,7 @@
     \begin{minted}{scala}
 val gradient = rep(Inf)(distance =>
 mux(source){0.0}/*else*/{
-  includingSelf.
-    minHood(nbr{distance} + nbrRange)
+  minHood(nbr{distance} + nbrRange)
 })
     \end{minted}
     \centering
@@ -263,7 +262,7 @@ rep((|$s_0, a_0$, $o_0$|)) { // $s_0$, $a_0$ context dependent
     // state from the neighbourhood field program output
     val |$s_{t}$| = state(nbr(|$o_{t}$|))
     val |$a_{t}$| = branch(learn) { // actions depends on learn condition
-      val |$r_{t-1}$| = reward(|$o_{t}$|, simulation) // simulation is a global object
+      val |$r_{t-1}$| = oracle.reward(|$o_{t}$|)
       learning.updateQ(Q, |$s_{t-1}$|, |$a_{t-1}$|, |$r_{t-1}$|, |$s_{t}$|) // Q update
       |$\sim$| |$\pi_{behavioural}^Q$|(|$s_{t}$|) // sample from a probabilistic distribution
     } {
