@@ -45,20 +45,20 @@
 \begin{frame}{Design/Program CASs applications}
   \begin{alarm}[Challenges: worst case scenario]
     \begin{itemize}
-      \item \emph{zillion} of devices \emph{unpredictabily} located and moving in the environement
-      \item heterogenous displacement, \emph{pervasive} sensing/actuation
-      \item computational service are mostly \emph{contextual} (i.e., proximity based)
-      \item \emph{complex} \& \emph{layered} IT infrastructures (edge/fog/cloud computing)
+      \item \emph{Zillion} of devices \emph{unpredictabily} located and moving in the environement
+      \item Heterogenous displacement, \emph{pervasive} sensing/actuation
+      \item Computational service are mostly \emph{contextual} (i.e., proximity based)
+      \item \emph{Complex} \& \emph{layered} IT infrastructures (edge/fog/cloud computing)
       \item[\faArrowRight] What are the right abstractions/programming model for such a kind of systems?
     \end{itemize}
   \end{alarm}
   \begin{card}[A possible good abstractions/model]
     \begin{itemize}
-      \item[\faThumbsUp] abstract from individual devices program, low-level interaction protocol, and environement details
-      \item[\faThumbsUp] focus on how the \emph{global output} pattern can be obtained from global
+      \item[\faThumbsUp] Abstract from individual devices program, low-level interaction protocol, and environement details
+      \item[\faThumbsUp] Focus on how the \emph{global output} pattern can be obtained from global
       inputs
-      \item[\faThumbsUp] focus on both spatial and temporal computing patterns
-      \item[\faThumbsUp] refer to an abstract notion of executing platform, easily adaptable to
+      \item[\faThumbsUp] Focus on both spatial and temporal computing patterns
+      \item[\faThumbsUp] Refer to an abstract notion of executing platform, easily adaptable to
       real-life contexts (\emph{reality gap}) 
     \end{itemize}
   \end{card}
@@ -82,10 +82,10 @@
 \begin{frame}[allowframebreaks]{Computational Fields}
   \begin{card}[Traditionally a map: Space \faArrowRight \, Values]
     \begin{itemize}
-      \item possibly: evolving over time, dynamically injected, stabilising
-      \item smoothly adapting to very heterogeneous domains
-      \item more easily ``understood'' on continuous and flat spatial domains
-      \item ranging to: booleans, reals, vectors, functions
+      \item Possibly: evolving over time, dynamically injected, stabilising
+      \item Smoothly adapting to very heterogeneous domains
+      \item More easily ``understood'' on continuous and flat spatial domains
+      \item Ranging to: booleans, reals, vectors, functions
     \end{itemize}
     
   \end{card}
@@ -147,8 +147,8 @@ trait Constructs:
   def nbrvar[A](name: CNAME): A
     \end{minted}
 \begin{itemize}
-  \item rooted on Field calculus (a sort of $\lambda-calculus$ for fields)
-  \item mainly developed @ UniBo by Viroli and Casadei
+  \item Rooted on Field calculus (a sort of $\lambda-calculus$ for fields)
+  \item Mainly developed @ UniBo by Viroli and Casadei
   \item \mintinline{scala}{rep} used to express \emph{field evolution} (time)
   \item \mintinline{scala}{nbr} used to express \emph{interaction} (space)
   \item \mintinline{scala}{branch} used to express \emph{partitioning}
@@ -163,9 +163,9 @@ trait Constructs:
   \begin{itemize}
     \item \textbf{Requirements}:
     \begin{itemize}
-      \item a notion of neighbourhood must be defined — wireless connectivity, physical proximity \dots
-      \item nodes execute in asynchronous rounds, and emit a ``round result''
-      \item a node need to have recent round results of neighbours
+      \item A notion of neighbourhood must be defined — wireless connectivity, physical proximity \dots
+      \item Nodes execute in asynchronous rounds, and emit a ``round result''
+      \item A node need to have recent round results of neighbours
     \end{itemize}
     \item \textbf{Execution Model}:
     \begin{enumerate}
@@ -197,12 +197,12 @@ trait Constructs:
 \begin{frame}{Aggregate Computing: is it expressive?}
   \begin{card}[Practically we can express]
     \begin{itemize}
-      \item complex spreading / aggregation / decay functions
-      \item spatial leader election, partitioning, consensus
-      \item distributed spatio-temporal sensing 
-      \item splitting in parallel independent subprocesses
-      \item dynamic deployment/spreading of code
-      \item ``collective teams'' forming based on the selected code \dots
+      \item Complex spreading / aggregation / decay functions~\cite{beal2015aggregate-programming}
+      \item Spatial leader election, partitioning, consensus~\cite{damiani2015code}
+      \item Distributed spatio-temporal sensing~\cite{viroli2016execution}
+      \item Splitting in parallel independent subprocesses~\cite{viroli2016execution}
+      \item Dynamic deployment/spreading of code~\cite{damiani2015code}
+      \item ``Collective teams'' forming based on the selected codee~\cite{viroli2015multi} \dots
       \item \dots but how to engineer complex apps out of basic constructs?
     \end{itemize}
   \end{card}
@@ -227,34 +227,34 @@ trait Constructs:
     \begin{itemize}
       \item \textbf{Formal properties}:
       \begin{itemize}
-        \item self-stabilisation \faArrowRight\, resilience to occasional changes
-        \item eventual consistency
+        \item self-stabilisation~\cite{viroli2018selfstab} \faArrowRight\, resilience to occasional changes
+        \item eventual consistency~\cite{10.1145/3105758}
       \end{itemize}
-      \item Universality
-      \item High-order Field-calculus \faArrowRight \, code mobility
+      \item Space-Time Universality~\cite{audrito2018space}
+      \item High-order Field-calculus~\cite{audrito2019tocl} \faArrowRight \, code mobility
       \item Toolchains (DSL \& Platforms)
-      \item Concurrent Collective Activity \faArrowRight \,\emph{aggregate processes}
+      \item Concurrent Collective Activity \faArrowRight\, \emph{aggregate processes}~\cite{casadei2019coord-procs}
     \end{itemize}
   \end{card}
   \begin{card}[Research Directions]
     \begin{itemize}
-      \item \highlight{Distributed schedulers}
-      \item \highlight{Distributed \& spatial monitoring}
-      \item \highlight{Pulverised architecture}
+      \item \highlight{Programmable Distributed schedulers}~\cite{zambonelli2021time}
+      \item \highlight{Distributed \& spatial monitoring}~\cite{DBLP:journals/jss/AudritoCDSV21}
+      \item \highlight{Pulverised architecture}~\cite{casadei2020pulverization}
       \begin{itemize}
-        \item Pontetially integrated with Machine Learning
+        \item Pontetially integrated with Machine Learning~\cite{aguzzi2021research, aguzzi2022towards}
       \end{itemize}
     \end{itemize}
   \end{card}
   \begin{card}[Explored application]
     \begin{itemize}
-    \item Crowd engineering
-    \item WSNs, Distributed sensing
-    \item Smart city (e.g., intelligent lighting)
-    \item Smart buildings
-    \item Industry 4.0
-    \item \highlight{Swarm intelligence (robots, drones)}
-    \item Rescue scenarios
+      \item Crowd engineering~\cite{beal2015aggregate-programming,casadei2019fgcs}
+      \item WSNs, Distributed sensing~\cite{casadei2018programming-actor-based-cas}
+      \item Smart city (e.g., intelligent lighting)~\cite{pianini2021fgcs}
+      \item Smart buildings~\cite{mariani2019fluidware}
+      \item Industry 4.0~\cite{casadei2019scc}
+      \item Swarm intelligence (robots, drones)~\cite{casadei2020eaai}
+      \item Rescue scenarios~\cite{viroli2017aggregate-plans}
     \end{itemize}
   \end{card}
 \end{frame}
@@ -266,7 +266,7 @@ trait Constructs:
       \item Fault-tolerant behaviours
       \item Network size-independent programs
       \item Potentially no need for central authority
-      \item enabling mechanisms:
+      \item Enabling mechanisms:
         \begin{itemize}
           \item Aggregate processes \faArrowRight \, support concurrent \& collective activity
         \end{itemize}
@@ -288,11 +288,11 @@ trait Constructs:
     \begin{itemize}
       \item FC is proven to be space-time universal
       \item \dots But is typically unfleasible to describe multiple \& dynamic computation
-      \item[\faArrowRight] that are essential for ``Swarm''-like systems!! 
+      \item[\faArrowRight] That are essential for ``Swarm''-like systems!! 
     \end{itemize}
   \end{card}
   \begin{card}[Aggregate process]
-    \emph{A dynamic collection of computations} (a ``bubble'') \faArrowRight similar to OS processes but on aggregates
+    \emph{A dynamic collection of computations} (a ``bubble'') \faArrowRight \, similar to OS processes but on aggregates
     \begin{itemize}
       \item \textbf{Features}:
       \begin{itemize}
@@ -304,10 +304,10 @@ trait Constructs:
   \end{card}
   \begin{card}[What can we express with aggregate processes?]
     \begin{itemize}
-      \item move drones in flocking formation \dots \highlight{while also dynamically} \dots
-      \item detect or estimate something
-      \item elect leader
-      \item organise teams for missisions departing from the flock
+      \item Move drones in flocking formation \dots \highlight{while also dynamically} \dots
+      \item Detect or estimate something
+      \item Elect leader
+      \item Organise teams for missisions departing from the flock
     \end{itemize}
   \end{card}
   \centering
@@ -318,7 +318,7 @@ trait Constructs:
   \end{multicols*}
 \end{frame}
 \begin{frame}[allowframebreaks]{Case studies}
-  \begin{card}[Fire detection]
+  \begin{card}[Fire detection~\cite{casadei2020eaai}]
     \begin{multicols}{2}
       \begin{itemize}
         \item 200 UAVs
@@ -330,7 +330,7 @@ trait Constructs:
     \end{multicols}
     
     \end{card}
-  \begin{card}[Wildlife Rescue]
+  \begin{card}[Wildlife Rescue~\cite{DBLP:journals/jsan/CasadeiAV21}]
     \begin{multicols*}{2}
       \begin{itemize}
         \item 80 mobiles UAVs, 20 stations and 100 animals
@@ -341,9 +341,27 @@ trait Constructs:
       \cardImg{img/wild-rescue}{0.3\textwidth}
     \end{multicols*}
   \end{card}
+  \begin{card}[Flocking API (Experimental)]
+    \begin{multicols}{2}
+      \begin{itemize}
+        \item Express drones movement as a computational field
+        \item High-Level \& Composable
+        \item Extendible
+        \item Allow complex movement pattern
+        \begin{itemize}
+          \item Anti-flocks
+          \item Obstacle avoidance
+          \item Team formation
+          \item Goal seeking
+        \end{itemize}
+      \end{itemize}
+      \centering
+      \cardImg{img/flocks}{0.3\textwidth}
+    \end{multicols}
+  \end{card}
 \end{frame}
-%\begin{frame}[allowframebreaks]
- % \frametitle{References}
-%  \printbibliography
-%\end{frame}
+\begin{frame}[allowframebreaks]
+  \frametitle{References}
+  \printbibliography
+\end{frame}
 \end{document}
