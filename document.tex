@@ -16,7 +16,7 @@
 \begin{frame}{Collective/Complex Adaptive Systems}
   \begin{card}[The systems of today!]
     \begin{itemize}
-      \item [\faArrowRight] \emph{Context:} Dynamic Envirnoments + Large Scale Network of Cyber-Physical entities
+      \item [\faArrowRight] \emph{Context:} Dynamic Environments + Large Scale Network of Cyber-Physical entities
       \item [\faArrowRight] \emph{Global Interpretation:} embedded devices collectively form a ``diffused'' computational systems
       \item [\faArrowRight] \emph{Examples}: Pervasive Systems, Drone swarms, Smart cities/building, \dots
     \end{itemize}
@@ -45,16 +45,16 @@
 \begin{frame}{Design/Program CASs applications}
   \begin{alarm}[Challenges: worst case scenario]
     \begin{itemize}
-      \item \emph{Zillion} of devices \emph{unpredictabily} located and moving in the environement
+      \item \emph{Zillions} of devices, \emph{unpredictably} located and moving in the environment
       \item Heterogenous displacement, \emph{pervasive} sensing/actuation
-      \item Computational service are mostly \emph{contextual} (i.e., proximity based)
+      \item Computational services are mostly \emph{contextual} (i.e., proximity-based)
       \item \emph{Complex} \& \emph{layered} IT infrastructures (edge/fog/cloud computing)
-      \item[\faArrowRight] What are the right abstractions/programming model for such a kind of systems?
+      \item[\faArrowRight] What are the right abstractions/programming model for such a kind of system?
     \end{itemize}
   \end{alarm}
-  \begin{card}[A possible good abstractions/model]
+  \begin{card}[A possible good model/abstractions]
     \begin{itemize}
-      \item[\faThumbsUp] Abstract from individual devices program, low-level interaction protocol, and environement details
+      \item[\faThumbsUp] Abstract from individual devices program, low-level interaction protocol, and environment details
       \item[\faThumbsUp] Focus on how the \emph{global output} pattern can be obtained from global
       inputs
       \item[\faThumbsUp] Focus on both spatial and temporal computing patterns
@@ -69,7 +69,7 @@
   \begin{card}[Motto: \emph{program the aggregate, not the individual devices}]
     \begin{itemize}
       \item \highlight{The reference computing machine}
-      \faArrowRight \, an aggregate of devices as single ``body'', fading to the actual space
+      \faArrowRight \, an aggregate of devices as a single ``body'', fading to the actual space
       \item \highlight{The reference elaboration process}
       \faArrowRight \,  atomic manipulation of a collective data structure (a so-called \emph{field})
       \item \highlight{The actual networked computation}
@@ -165,13 +165,13 @@ trait Constructs:
     \begin{itemize}
       \item A notion of neighbourhood must be defined — wireless connectivity, physical proximity \dots
       \item Nodes execute in asynchronous rounds, and emit a ``round result''
-      \item A node need to have recent round results of neighbours
+      \item A node needs to have recent round results of neighbours
     \end{itemize}
     \item \textbf{Execution Model}:
     \begin{enumerate}
       \item[\textbf{1}.] Retrieve context
       \item[\textbf{2}.] Aggregate program Execution
-      \item[\textbf{3}.] Brodcast export to the neighbourhood
+      \item[\textbf{3}.] Broadcast export to the neighbourhood
       \item[\textbf{4}.] Execute actuation (if needed)
     \end{enumerate}
     \item \textbf{NB!} the above requirements can be met by various platforms
@@ -199,10 +199,10 @@ trait Constructs:
     \begin{itemize}
       \item Complex spreading / aggregation / decay functions~\cite{beal2015aggregate-programming}
       \item Spatial leader election, partitioning, consensus~\cite{damiani2015code}
-      \item Distributed spatio-temporal sensing~\cite{viroli2016execution}
+      \item Distributed spatioemporal sensing~\cite{viroli2016execution}
       \item Splitting in parallel independent subprocesses~\cite{viroli2016execution}
       \item Dynamic deployment/spreading of code~\cite{damiani2015code}
-      \item ``Collective teams'' forming based on the selected codee~\cite{viroli2015multi} \dots
+      \item ``Collective teams'' forming based on the selected code~\cite{viroli2015multi} \dots
       \item \dots but how to engineer complex apps out of basic constructs?
     \end{itemize}
   \end{card}
@@ -265,7 +265,7 @@ trait Constructs:
     \begin{itemize}
       \item Fault-tolerant behaviours
       \item Network size-independent programs
-      \item Potentially no need for central authority
+      \item Potentially no need for a central authority
       \item Enabling mechanisms:
         \begin{itemize}
           \item Aggregate processes \faArrowRight \, support concurrent \& collective activity
@@ -277,7 +277,7 @@ trait Constructs:
     \begin{itemize}
       \item Several simulations are performed with good results
       \item Lack of a API for expressing ``swarm'' like behaviours (e.g., flocks)
-      \item Reality-gap \faArrowRight \, lack of test \emph{in vitro}
+      \item Reality-gap \faArrowRight \, lack of test in real systems
     \end{itemize}
   \end{card}
 
@@ -287,7 +287,7 @@ trait Constructs:
   \begin{card}[Why?]
     \begin{itemize}
       \item FC is proven to be space-time universal
-      \item \dots But is typically unfleasible to describe multiple \& dynamic computation
+      \item \dots But is typically unfeasible to describe multiple \& dynamic computations
       \item[\faArrowRight] That are essential for ``Swarm''-like systems!! 
     \end{itemize}
   \end{card}
@@ -307,7 +307,7 @@ trait Constructs:
       \item Move drones in flocking formation \dots \highlight{while also dynamically} \dots
       \item Detect or estimate something
       \item Elect leader
-      \item Organise teams for missisions departing from the flock
+      \item Organise teams for missions departing from the flock
     \end{itemize}
   \end{card}
   \centering
