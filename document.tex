@@ -13,351 +13,306 @@
 \end{frame}
 \addtocounter{framenumber}{-1}
 \section{Background}
-\begin{frame}{Collective/Complex Adaptive Systems}
-  \begin{card}[The systems of today!]
+\begin{frame}{Context}
+  \begin{card}[Engeneering distributed Collectives Intelligence]
     \begin{itemize}
-      \item [\faArrowRight] \emph{Context:} Dynamic Environments + Large Scale Network of Cyber-Physical entities
-      \item [\faArrowRight] \emph{Global Interpretation:} embedded devices collectively form a ``diffused'' computational systems
-      \item [\faArrowRight] \emph{Examples}: Pervasive Systems, Drone swarms, Smart cities/building, \dots
+      \item \highlight{Why?} \faArrowRight \, distributed artificial system/socio-technical/cyber-physical deal with ``collectives''
+      \begin{multicols}{2}
+      \begin{itemize}
+        \item Swarm robotics
+        \item Crowd Engeneering
+        \item Smart cities/building/house
+      \end{itemize}
+      \begin{itemize}
+        \item Wireless Sensor Networks
+        \item Industry 4.0
+        \item Traffic management
+      \end{itemize}
+      \end{multicols}
+      \item Environement interactions \faPlus \, Large network of cyber physical/artificial entities
     \end{itemize}
   \end{card}
-  \centering
-  \begin{multicols*}{3}
-    \cardImg{img/queen}{0.30\textwidth}   
-    \cardImg{img/traffic}{0.30\textwidth} 
-    \cardImg{img/swarm}{0.30\textwidth} 
-  \end{multicols*}
-\end{frame}
-\begin{frame}{Application Examples: Crowd Engineering}
-  \begin{multicols*}{3}
-    \begin{card}[Crowd-Detection]
-      \includegraphics[width=\textwidth]{img/crowd-detection.png}
-    \end{card}
-    \begin{card}[Crowd-Aware steering]
-      \includegraphics[width=\textwidth]{img/crowd-steering.png}
-    \end{card}
-    \begin{card}[Contact Tracing]
-      \includegraphics[width=\textwidth]{img/contact-tracing.png}
-    \end{card}
-    
-  \end{multicols*}
-\end{frame}
-\begin{frame}{Design/Program CASs applications}
-  \begin{alarm}[Challenges: worst case scenario]
-    \begin{itemize}
-      \item \emph{Zillions} of devices, \emph{unpredictably} located and moving in the environment
-      \item Heterogenous displacement, \emph{pervasive} sensing/actuation
-      \item Computational services are mostly \emph{contextual} (i.e., proximity-based)
-      \item \emph{Complex} \& \emph{layered} IT infrastructures (edge/fog/cloud computing)
-      \item[\faArrowRight] What are the right abstractions/programming model for such a kind of system?
-    \end{itemize}
+  \begin{alarm}[ \faExclamationTriangle \, \textbf{How}?]
+    \highlight{Engeneering perspective} \faArrowRight \, Models, tools, simulations, abstractions, programming languages, \dots
   \end{alarm}
-  \begin{card}[A possible good model/abstractions]
-    \begin{itemize}
-      \item[\faThumbsUp] Abstract from individual devices program, low-level interaction protocol, and environment details
-      \item[\faThumbsUp] Focus on how the \emph{global output} pattern can be obtained from global
-      inputs
-      \item[\faThumbsUp] Focus on both spatial and temporal computing patterns
-      \item[\faThumbsUp] Refer to an abstract notion of executing platform, easily adaptable to
-      real-life contexts (\emph{reality gap}) 
-    \end{itemize}
-  \end{card}
-\end{frame}
-\section{Aggregate Computing}
-
-\begin{frame}{Aggregate Computing}
-  \begin{card}[Motto: \emph{program the aggregate, not the individual devices}]
-    \begin{itemize}
-      \item \highlight{The reference computing machine}
-      \faArrowRight \, an aggregate of devices as a single ``body'', fading to the actual space
-      \item \highlight{The reference elaboration process}
-      \faArrowRight \,  atomic manipulation of a collective data structure (a so-called \emph{field})
-      \item \highlight{The actual networked computation}
-      \faArrowRight \, a proximity-based self-organisation system hidden “under-the-hood”
-    \end{itemize}
-  \end{card}
-  \centering
-  \cardImg{img/ac.png}{0.5\textwidth}
-\end{frame}
-\begin{frame}[allowframebreaks]{Computational Fields}
-  \begin{card}[Traditionally a map: Space \faArrowRight \, Values]
-    \begin{itemize}
-      \item Possibly: evolving over time, dynamically injected, stabilising
-      \item Smoothly adapting to very heterogeneous domains
-      \item More easily ``understood'' on continuous and flat spatial domains
-      \item Ranging to: booleans, reals, vectors, functions
-    \end{itemize}
-    
-  \end{card}
-  \centering
-  \begin{multicols}{3}
-    \begin{card}[Numeric partition in 2D]
-      \centering
-      \includegraphics[height=15mm]{img/scr-result.png}
-    \end{card}
-    \begin{card}[Boolean field in 2D]
-      \centering
-      \includegraphics[height=15mm]{img/channel.png}
-    \end{card}
-    \begin{card}[Real-value gradient in 3D]
-      \centering
-      \includegraphics[height=15mm]{img/3d-gradient.png}
-    \end{card}
-  \end{multicols}
-  \begin{card}[Nowadays: a space-time structure: $\phi \, : \, D \rightarrow V$]
-    \begin{itemize}
-      \item \emph{event $E$}: a triple $\langle\delta, t, p\rangle$ – device $\delta$, ``firing" at time $t$ in position $p$
-      \item \emph{events domain $D$}: a coherent set of events (devices cannot move too fast)
-      \item \emph{field values $V$}: any data value
-    \end{itemize}
-  \end{card}
-  \centering
-  \begin{multicols}{2}
-    \cardImg{img/left-space-time-field.png}{0.3\textwidth}
-    \cardImg{img/right-space-time-field.png}{0.3\textwidth}
-  \end{multicols}
-\end{frame}
-\begin{frame}{An example problem: computing a route towards a POI}
-  \centering
-  \cardImg{img/channel.png}{0.7\textwidth}
 \end{frame}
 
-\begin{frame}{Aggregate programming as a functional approach}
-  \begin{card}[Functionally composing fields]
-    \begin{itemize}
-      \item Inputs: sensor fields, Output: actuator field (e.g., alarm, velocity, ...)
-      \item Computation is a pure function over fields (time embeds state!)
-      \item[\faArrowRight] for this to be practical/expressive we need a good programming language
-    \end{itemize}
-  \end{card}
-  \centering
-  \cardImg{img/composition.png}{0.4\textwidth}
+\begin{frame}{A programming approach: Aggregate Computing~\cite{beal2015aggregate-programming}}
+    \begin{columns}
+      \begin{column}[c]{0.8\textwidth}
+        \begin{card}[What?]
+          \begin{itemize}
+            \item[\success{\faInfo}] a \emph{macro-programming} paradigm for Collective Adaptive Systems (CASs)
+            \begin{itemize}
+              \item \highlight{macro-programming} \faArrowRight \, devising the macroscopic behaviour of systems of computational entities
+              \item \highlight{Motto}: \emph{program the aggregate, not the individual devices}
+              \item \item A way to \emph{program} Collective Intelligence \& Self-organisation 
+            \end{itemize}
+            \item[\success{\faInfo}] Collective Behaviour expressed through \emph{Computational fields} (short---\emph{fields})
+            \begin{itemize}
+              \item Distributed spacetime data structure \faArrowRight \, $F: (Devices, Time) \rightarrow (Values)$
+            \end{itemize}
+            \item[\success{\faInfo}] \highlight{Fields calcus} \faArrowRight \, core language to express fields manipulation
+            \begin{itemize}
+              \item Aggregate computing \faArrowRight \, Field calcus = \, Functional Programming \faArrowRight \, Lambda calculus
+              \item function application (computation + branching)
+              \item stateful evolution (\highlight{rep})
+              \item local interaction (\highlight{nbr})
+            \end{itemize}
+          \end{itemize}
+        \end{card}
+      \end{column}
+      \begin{column}[c]{0.2\textwidth}
+        \cardImg{img/ac-vertical.png}{\textwidth}
+      \end{column}
+    \end{columns}
 \end{frame}
-\begin{frame}[fragile, allowframebreaks]{Computing with Fields}
-  \begin{card}[Field/aggregate computation in scala: ScaFi]
+\begin{frame}[allowframebreaks, fragile]{What can we express with Aggregate Computing?}
+  \centering
+  \cardImg{img/channel.png}{0.6\textwidth}
+  \begin{card}[Aggregate Program specification]
     \begin{minted}{scala}
-trait Constructs:
-  def rep[A](init: => A)(fun: A => A): A
-  def nbr[A](expr: => A): A
-  def foldhood[A](init: => A)(acc: (A, A) => A)(expr: => A): A
-  def branch[A](cond: => Boolean)(th: => A)(el: => A)
-  // not part of FC, but foundational
-  def mid: ID
-  def sense[A](sensorName: String): A
-  def nbrvar[A](name: CNAME): A
+def channel(source: Boolean, target: Boolean, width: Double): Boolean = {
+  distanceTo(source) + distanceTo(target) <= distanceBetween(source, target) + width
+}
     \end{minted}
-\begin{itemize}
-  \item Rooted on Field calculus (a sort of $\lambda-calculus$ for fields)
-  \item Mainly developed @ UniBo by Viroli and Casadei
-  \item \mintinline{scala}{rep} used to express \emph{field evolution} (time)
-  \item \mintinline{scala}{nbr} used to express \emph{interaction} (space)
-  \item \mintinline{scala}{branch} used to express \emph{partitioning}
-\end{itemize}
   \end{card}
-\framebreak
-\begin{card}[Intuitions of global level semantics]
-  \centering
-  \includegraphics[width=0.8\textwidth]{img/high-level-examples.png}
-\end{card}
-\begin{card}[Execution Platform]
-  \begin{itemize}
-    \item \textbf{Requirements}:
-    \begin{itemize}
-      \item A notion of neighbourhood must be defined — wireless connectivity, physical proximity \dots
-      \item Nodes execute in asynchronous rounds, and emit a ``round result''
-      \item A node needs to have recent round results of neighbours
-    \end{itemize}
-    \item \textbf{Execution Model}:
-    \begin{enumerate}
-      \item[\textbf{1}.] Retrieve context
-      \item[\textbf{2}.] Aggregate program Execution
-      \item[\textbf{3}.] Broadcast export to the neighbourhood
-      \item[\textbf{4}.] Execute actuation (if needed)
-    \end{enumerate}
-    \item \textbf{NB!} the above requirements can be met by various platforms
-    \begin{itemize}
-      \item P2P
-      \item Client-Server
-      \item Edge-Cloud computing
-    \end{itemize}
-  \end{itemize}
-\end{card}
+  \cardImg{img/composition.png}{0.45\textwidth}
 \end{frame}
-\begin{frame}{Computing with Field: mini tutorial with ScaFi}
-  \begin{card}[References]
+\begin{frame}{Aggregate Computing: how?}
+  \begin{card}[Requirements]
     \begin{itemize}
-    \item Official Scafi on Github: \url{https://github.com/scafi/scafi}
-    \item \highlight{ScafiWeb}: \url{https://scafi.github.io/web/}
-    \item Official Documentation: \url{https://scafi.github.io/}
+      \item \highlight{Structure}: network, based on some neighbouring relationship
+      \item \highlight{Dynamics}: repeated, async execution of an ``aggregate'' protocol    
     \end{itemize}
   \end{card}
-  \centering
-  \cardImg{img/scafi-web.png}{0.5\textwidth}
-\end{frame}
-\begin{frame}{Aggregate Computing: is it expressive?}
-  \begin{card}[Practically we can express]
+  \begin{card}[Execution Model]
     \begin{itemize}
-      \item Complex spreading / aggregation / decay functions~\cite{beal2015aggregate-programming}
-      \item Spatial leader election, partitioning, consensus~\cite{damiani2015code}
-      \item Distributed spatioemporal sensing~\cite{viroli2016execution}
-      \item Splitting in parallel independent subprocesses~\cite{viroli2016execution}
-      \item Dynamic deployment/spreading of code~\cite{damiani2015code}
-      \item ``Collective teams'' forming based on the selected code~\cite{viroli2015multi} \dots
-      \item \dots but how to engineer complex apps out of basic constructs?
+      \item[\success{\faInfo}] \highlight{Asynchronous execution rounds}:
+      \begin{itemize}
+        \item [\highlight{1-}] \textbf{perceive} local context (messages from neighbours, sensed environment state) 
+        \item [\highlight{2-}] \textbf{compute} \emph{aggregate program} against local context
+        \item [\highlight{3-}] \textbf{act} on local context (send messages to neighbours, act on environment)
+      \end{itemize}
     \end{itemize}
   \end{card}
 \end{frame}
-\begin{frame}{GCT as a combinator set}
+\begin{frame}{Aggregate Computing: Layered Approach}
   \centering
-  \cardImg{img/gct.png}{0.7\textwidth}
+  \cardImg{img/aggregate-computing-stack.png}{0.5\textwidth}
+\end{frame}
+\section{Research Roadmap}
+\begin{frame}{Aggregate Computing Framework: Goals and Means}
+  \begin{columns}
+    \begin{column}[t]{0.6\textwidth}
+      \begin{card}[Goals]
+        \begin{itemize}
+          \item[\success{\faInfo}] \highlight{Functionality} \faArrowRight \, achieving some collective behaviour
+          \begin{itemize}
+            \item environment monitoring \& control
+            \item drone rescues
+            \item crowd detection
+          \end{itemize}
+          \item[\success{\faInfo}] \highlight{Non-Functionality} \faArrowRight \, cost related to the functionality.
+          \begin{itemize}
+            \item \emph{time efficiency} \faArrowRight \, convergence time of collective specifications
+            \item \emph{communication efficiency} \faArrowRight \, amount of data exchanged
+            \item \emph{execution efficiency} \faArrowRight \, rounds performed to achieve a collective behaviour
+            \item \emph{energy efficiency} \faArrowRight \, communication \faPlus \, execution efficiency
+            \item \emph{dependability}
+          \end{itemize}
+        \end{itemize}
+      \end{card}
+    \end{column}
+
+    \begin{column}[t]{0.4\textwidth}
+      \begin{card}[Means]
+        \begin{itemize}  
+          \item[\success{\faInfo}] \highlight{Algorithms}
+          \item[\success{\faInfo}] \highlight{Execution strategy}
+          \item[\success{\faInfo}] \highlight{System structure}
+        \end{itemize}
+      \end{card}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Aggregate Computing \faPlus \,  Machine Learning}
+  \begin{card}[\textbf{Vision}]
+    \begin{itemize}
+      \item State-of-the-art \faArrowRight \, means devised through \emph{hand-crafted} solution (heuristics, models, \dots)
+      \item Machine Learning \faArrowRight \, \emph{augument} (or replace) traditional solution 
+      \item[\success{\faThumbsUp}] \highlight{Potential benefit / Opportunities}
+      \begin{itemize}
+        \item Automatic desing of CI
+        \item Coherent and high-level specification (through AC programming stack) \faPlus \, learn by doing or from data \faArrowRight \, hybrid programming approach
+        \item Improving adaptivity of collective specifications
+      \end{itemize}
+      \item[\failure{\faThumbsDown}] Challenges
+      \begin{itemize}
+        \item Distribution \& decentralisation 
+        \item Partial observability
+        \item Many agent coordinations
+        \item Eventual nature of collective computation
+      \end{itemize}
+    \end{itemize}
+  \end{card}
+\end{frame}
+\begin{frame}{Aggregate Computing \faPlus \,  Machine Learning: Roadmap}
+  \centering
+  \cardImg{img/roadmap}{0.8\textwidth}
+\end{frame}
+\begin{frame}[allowframebreaks]{Learning Aggregate Computing algorithms}
   \begin{cardTiny}
     \begin{itemize}
-      \item \textbf{G}: Spreads and en-route computes information outwards a source
-      \item \textbf{C}: Collects and en-route aggregates information inwards a destination
-      \item \textbf{T}: Locally iterates computations (with termination)
+      \item \highlight{Aggregate Computing Algorithms}: Function from Field to Field (Collective Data Structure)
+      \item Building blocks: Set of self-organisation pattern for collective application
+      \begin{itemize}
+        \item G: \emph{gradient-cast} \faArrowRight \,  information sharing outwards a source
+        \item C: \emph{collect} \faArrowRight \, infromation collection inwards a source
+        \item S: \emph{sparse choice} \faArrowRight \, distributed leader election
+        \item \dots
+      \end{itemize}
+      \item Each block could have several implementations \emph{reasons} \faArrowRight \, different non-functional
+      outcomes:
+      \begin{itemize}
+        \item time constrainsts
+        \item highly dynamic environment
+        \item \dots
+      \end{itemize}
+      \item[\failure{\faThumbsDown}] hand-crafted building block concerns:
+      \begin{itemize}
+        \item complex parameter tuning
+        \item complex definition in unknown environment
+        \item hard to use in non-stationary environment (when should i change the block implementations?)
+      \end{itemize}
     \end{itemize}
   \end{cardTiny}
-\end{frame}
-\begin{frame}{Aggregate Computing Full stack API}
+  \begin{card}[The gradient algorithm]
+    \begin{itemize}
+      \item A function mapping a Boolean field of sources to the field of minimum distances from those sources
+      \begin{itemize}
+        \item \emph{progressive}: they take time  to converge to the ``correct'' value
+        \item \emph{self-healing}: hey can adjust their output following changes in
+        their inputs and the system topology
+      \end{itemize}
+      \item \highlight{Non-functionality} concerns:
+      \begin{itemize}
+        \item convergence time \faArrowRight \, CRF, BIS, SVD
+        \item output smothness \faArrowRight \, Flex
+      \end{itemize}
+    \end{itemize}
+  \end{card}
+  \begin{card}[Proposed apporach: Program sketching / synthesis]
+    \begin{itemize}
+      \item Designers continue to used high-level block \& API
+      \item Part of programs contains \emph{holes} related to non-functional aspects
+      \item A Machine Learning algorithm fill these \emph{holes}
+      \begin{itemize}
+        \item following a non-functional specification (energy, time, message exchanged, \dots)
+        \item using raw experience (i.e., online continual learning) or through simulations \& data \faArrowRight \, adaptivity
+      \end{itemize}
+    \end{itemize}
+  \end{card}
+  \framebreak
+  \begin{card}[Preliminary work: fill holes through experience with Q-Learning~\cite{aguzzi2022towards}]
+    \begin{itemize}
+      \item Aggragate program evalaution combined with RL loop
+      \item During the evalaution, the missed part if refined with Q-Learning
+      \item \highlight{Schema}: Centralised Traning / Decentralised Execution
+      \item \highlight{Future works}: policy generalization issues, deals with continous state/action, \dots
+    \end{itemize}
+  \end{card}
   \centering
-  \cardImg{img/full-stack.png}{0.5\textwidth}
+  \cardImg{img/aggregate-agent-control-architecture-rl.pdf}{0.4\textwidth}
 \end{frame}
-\begin{frame}[allowframebreaks]{Aggregate Computing current status}
-  \begin{card}[Main results]
-    \begin{itemize}
-      \item \textbf{Formal properties}:
-      \begin{itemize}
-        \item self-stabilisation~\cite{viroli2018selfstab} \faArrowRight\, resilience to occasional changes
-        \item eventual consistency~\cite{10.1145/3105758}
-      \end{itemize}
-      \item Space-Time Universality~\cite{audrito2018space}
-      \item High-order Field-calculus~\cite{audrito2019tocl} \faArrowRight \, code mobility
-      \item Toolchains (DSL \& Platforms)
-      \item Concurrent Collective Activity \faArrowRight\, \emph{aggregate processes}~\cite{casadei2019coord-procs}
-    \end{itemize}
-  \end{card}
-  \begin{card}[Research Directions]
-    \begin{itemize}
-      \item \highlight{Programmable Distributed schedulers}~\cite{zambonelli2021time}
-      \item \highlight{Distributed \& spatial monitoring}~\cite{DBLP:journals/jss/AudritoCDSV21}
-      \item \highlight{Pulverised architecture}~\cite{casadei2020pulverization}
-      \begin{itemize}
-        \item Pontetially integrated with Machine Learning~\cite{aguzzi2021research, aguzzi2022towards}
-      \end{itemize}
-    \end{itemize}
-  \end{card}
-  \begin{card}[Explored application]
-    \begin{itemize}
-      \item Crowd engineering~\cite{beal2015aggregate-programming,casadei2019fgcs}
-      \item WSNs, Distributed sensing~\cite{casadei2018programming-actor-based-cas}
-      \item Smart city (e.g., intelligent lighting)~\cite{pianini2021fgcs}
-      \item Smart buildings~\cite{mariani2019fluidware}
-      \item Industry 4.0~\cite{casadei2019scc}
-      \item Swarm intelligence (robots, drones)~\cite{casadei2020eaai}
-      \item Rescue scenarios~\cite{viroli2017aggregate-plans}
-    \end{itemize}
-  \end{card}
-\end{frame}
-\section{Aggregate Computing for Swarms: case studies}
 
-\begin{frame}{Aggregate Computing for ``Swarms''}
-  \begin{card}[Benefits]
+\begin{frame}[allowframebreaks]{Learning execution strategies and adaptations}
+  \begin{cardTiny}
     \begin{itemize}
-      \item Fault-tolerant behaviours
-      \item Network size-independent programs
-      \item Potentially no need for a central authority
-      \item Enabling mechanisms:
+    \item AC program \faArrowRight \, possibly multiple \emph{execution strategies} that affect
+    \begin{itemize}
+      \item scheduling of computations
+      \item scheduling of communications
+      \item retention of messages from neighbours
+    \end{itemize}
+    \end{itemize}
+  \end{cardTiny}
+  \begin{card}[Execution strategy]
+    \begin{itemize}
+      \item Static
+      \begin{itemize}
+        \item time-based
+        \item reactive \faArrowRight \, depends on environment events (messages, sensors, \dots)
+      \end{itemize}
+      \item Dynamic \faArrowRight \,  adapt the execution choices at
+      runtime depending
+      \item \emph{Programmable distributed schedulers} \faArrowRight \, an hand-crafted solution to manage collective program scheduling specification
+      \item \textbf{Vision} \faArrowRight \, dynamic scheduling via learning or evolutionary appraoch following \emph{high-level} system goals \faArrowRight towards \emph{green autonomic computing}
+    \end{itemize}
+  \end{card}
+  \begin{card}[Preliminary work: Addressing Collective Computations Efficiency through RL]
+    \begin{itemize}
+      \item RL agent observe the output of a collective computation \emph{locally}
+      \item Reward function: try to maxisime the trend of between \emph{converge-time} and \emph{consumption}
+      \item Action: next-wake up time
+      \item \highlight{Results}: agents eventually find policies that reduce \emph{the collective} power consumption
+      \item \emph{Future works}: more robust evelatuation, online learning, \dots
+    \end{itemize}
+    \cardImg{img/image-rl-500-plain.pdf}{\textwidth}
+  \end{card}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Learning system structures and re-structuring}
+  \begin{columns}
+    \begin{column}[c]{0.65\textwidth}
+      \begin{cardTiny}
+      \begin{itemize}
+        \item Aggregate systems \faArrowRight \, logical network  of logical devices that perform rounds
+        \item Extremely flexible model \faArrowRight \, pulverised architecture 
+        \item The same program could be executed in several deployment
         \begin{itemize}
-          \item Aggregate processes \faArrowRight \, support concurrent \& collective activity
+          \item Collective specification does not depends on concrete IT Networks
+          \item Enable opportunistic code movement (from edge to cloud and viceversa)
         \end{itemize}
-    \end{itemize}
-  \end{card}
-
-  \begin{card}[Current status]
-    \begin{itemize}
-      \item Several simulations are performed with good results
-      \item Lack of a API for expressing ``swarm'' like behaviours (e.g., flocks)
-      \item Reality-gap \faArrowRight \, lack of test in real systems
-    \end{itemize}
-  \end{card}
-
+        \item[\failure{\faThumbsDown}] Complex deployment definition for a given goal (simulations)
+        \item[\success{\faThumbsUp}] \textbf{Vision}: inject ML to let the system learns the effective deployment policy \faArrowRight \,  improving the efficacy and
+        efficiency of aggregate applications.
+      \end{itemize}
+    \end{cardTiny}
+  \end{column}
+  \begin{column}[c]{0.3\textwidth}
+    \cardImg{img/deployments.jpg}{\textwidth}
+  \end{column}
+  \end{columns}
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Aggregate Processess: Why and What}
-  \begin{card}[Why?]
+
+\begin{frame}{Conclusion}
+  \begin{card}[Recap]
     \begin{itemize}
-      \item FC is proven to be space-time universal
-      \item \dots But is typically unfeasible to describe multiple \& dynamic computations
-      \item[\faArrowRight] That are essential for ``Swarm''-like systems!! 
-    \end{itemize}
-  \end{card}
-  \begin{card}[Aggregate process]
-    \emph{A dynamic collection of computations} (a ``bubble'') \faArrowRight \, similar to OS processes but on aggregates
-    \begin{itemize}
-      \item \textbf{Features}:
+      \item Aggregate computing \faArrowRight \, effective approach to engineer Collective Intelligence
+      \item \highlight{Vision} \faArrowRight \, improve aggregate application (functional \& non-functioanal aspects) through learning:
       \begin{itemize}
-        \item process lifecycle (\emph{generation}, \emph{shrinking},\emph{destruction})
-        \item process logic
-        \item process interaction
+        \item Algorithms
+        \item Execution strategies
+        \item deployments
+        \item[\success{\faThumbsUp}] Preliminary work shows good results
+      \end{itemize}
+      \item Opportunities:
+      \begin{itemize}
+        \item Automatic desing of CI
+        \item Green autonomic computing
+      \end{itemize}
+      \item Challenges
+      \begin{itemize}
+        \item Many-agents settings
+        \item Distribution
+        \item Partial observability
+        \item \dots
       \end{itemize}
     \end{itemize}
-  \end{card}
-  \begin{card}[What can we express with aggregate processes?]
-    \begin{itemize}
-      \item Move drones in flocking formation \dots \highlight{while also dynamically} \dots
-      \item Detect or estimate something
-      \item Elect leader
-      \item Organise teams for missions departing from the flock
-    \end{itemize}
-  \end{card}
-  \centering
-  \begin{multicols*}{3}
-    \cardImg{img/drone-a}{0.3\textwidth}
-    \cardImg{img/drone-b}{0.3\textwidth}
-    \cardImg{img/drone-c}{0.3\textwidth}
-  \end{multicols*}
-\end{frame}
-\begin{frame}[allowframebreaks]{Case studies}
-  \begin{card}[Fire detection~\cite{casadei2020eaai}]
-    \begin{multicols}{2}
-      \begin{itemize}
-        \item 200 UAVs
-        \item start at a base station, 10 random waypoints, and back
-        \item Aggregate computing used to detected emergence (not to steer the drones)
-      \end{itemize}
-      \centering
-      \cardImg{img/fire-detection.png}{0.3\textwidth}
-    \end{multicols}
     
-    \end{card}
-  \begin{card}[Wildlife Rescue~\cite{DBLP:journals/jsan/CasadeiAV21}]
-    \begin{multicols*}{2}
-      \begin{itemize}
-        \item 80 mobiles UAVs, 20 stations and 100 animals
-        \item the program influences the drone movements 
-        \item the choice of healing an animal is made by stations (i.e., leaders).
-      \end{itemize}
-      \centering
-      \cardImg{img/wild-rescue}{0.3\textwidth}
-    \end{multicols*}
-  \end{card}
-  \begin{card}[Flocking API (Experimental)]
-    \begin{multicols}{2}
-      \begin{itemize}
-        \item Express drones movement as a computational field
-        \item High-Level \& Composable
-        \item Extendible
-        \item Allow complex movement pattern
-        \begin{itemize}
-          \item Anti-flocks
-          \item Obstacle avoidance
-          \item Team formation
-          \item Goal seeking
-        \end{itemize}
-      \end{itemize}
-      \centering
-      \cardImg{img/flocks}{0.3\textwidth}
-    \end{multicols}
   \end{card}
 \end{frame}
 \begin{frame}[allowframebreaks]
