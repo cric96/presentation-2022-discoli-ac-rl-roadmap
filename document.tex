@@ -14,14 +14,14 @@
 \addtocounter{framenumber}{-1}
 \section{Background}
 \begin{frame}{Context}
-  \begin{card}[Engeneering distributed Collectives Intelligence]
+  \begin{card}[Engineering distributed Collectives Intelligence]
     \begin{itemize}
       \item \highlight{Why?} \faArrowRight \, distributed artificial system/socio-technical/cyber-physical deal with ``collectives''
       \begin{multicols}{2}
       \begin{itemize}
         \item Swarm robotics
-        \item Crowd Engeneering
-        \item Smart cities/building/house
+        \item Crowd Engineering
+        \item Smart cities/buildings/house
       \end{itemize}
       \begin{itemize}
         \item Wireless Sensor Networks
@@ -29,11 +29,11 @@
         \item Traffic management
       \end{itemize}
       \end{multicols}
-      \item Environement interactions \faPlus \, Large network of cyber physical/artificial entities
+      \item Environment interactions \faPlus \, Large network of cyber-physical/artificial entities
     \end{itemize}
   \end{card}
   \begin{alarm}[ \faExclamationTriangle \, \textbf{How}?]
-    \highlight{Engeneering perspective} \faArrowRight \, Models, tools, simulations, abstractions, programming languages, \dots
+    \highlight{Engineering perspective} \faArrowRight \, Models, tools, simulations, abstractions, programming languages, \dots
   \end{alarm}
 \end{frame}
 
@@ -46,15 +46,15 @@
             \begin{itemize}
               \item \highlight{macro-programming} \faArrowRight \, devising the macroscopic behaviour of systems of computational entities
               \item \highlight{Motto}: \emph{program the aggregate, not the individual devices}
-              \item \item A way to \emph{program} Collective Intelligence \& Self-organisation 
+              \item A way to \emph{program} Collective Intelligence \& Self-organisation 
             \end{itemize}
             \item[\success{\faInfo}] Collective Behaviour expressed through \emph{Computational fields} (short---\emph{fields})
             \begin{itemize}
               \item Distributed spacetime data structure \faArrowRight \, $F: (Devices, Time) \rightarrow (Values)$
             \end{itemize}
-            \item[\success{\faInfo}] \highlight{Fields calcus} \faArrowRight \, core language to express fields manipulation
+            \item[\success{\faInfo}] \highlight{Fields calculus}~\cite{audrito2019tocl} \faArrowRight \, core language to express fields manipulation
             \begin{itemize}
-              \item Aggregate computing \faArrowRight \, Field calcus = \, Functional Programming \faArrowRight \, Lambda calculus
+              \item Aggregate computing \faArrowRight \, Field calculus = \, Functional Programming \faArrowRight \, Lambda calculus
               \item function application (computation + branching)
               \item stateful evolution (\highlight{rep})
               \item local interaction (\highlight{nbr})
@@ -141,10 +141,10 @@ def channel(source: Boolean, target: Boolean, width: Double): Boolean = {
   \begin{card}[\textbf{Vision}]
     \begin{itemize}
       \item State-of-the-art \faArrowRight \, means devised through \emph{hand-crafted} solution (heuristics, models, \dots)
-      \item Machine Learning \faArrowRight \, \emph{augument} (or replace) traditional solution 
+      \item Machine Learning \faArrowRight \, \emph{augment} (or replace) traditional solution 
       \item[\success{\faThumbsUp}] \highlight{Potential benefit / Opportunities}
       \begin{itemize}
-        \item Automatic desing of CI
+        \item Automatic design of CI
         \item Coherent and high-level specification (through AC programming stack) \faPlus \, learn by doing or from data \faArrowRight \, hybrid programming approach
         \item Improving adaptivity of collective specifications
       \end{itemize}
@@ -166,17 +166,17 @@ def channel(source: Boolean, target: Boolean, width: Double): Boolean = {
   \begin{cardTiny}
     \begin{itemize}
       \item \highlight{Aggregate Computing Algorithms}: Function from Field to Field (Collective Data Structure)
-      \item Building blocks: Set of self-organisation pattern for collective application
+      \item Building blocks: Set of self-organisation patterns for collective application ~\cite{beal2015aggregate-programming}
       \begin{itemize}
         \item G: \emph{gradient-cast} \faArrowRight \,  information sharing outwards a source
-        \item C: \emph{collect} \faArrowRight \, infromation collection inwards a source
+        \item C: \emph{collect} \faArrowRight \, information collection inwards a source
         \item S: \emph{sparse choice} \faArrowRight \, distributed leader election
         \item \dots
       \end{itemize}
       \item Each block could have several implementations \emph{reasons} \faArrowRight \, different non-functional
       outcomes:
       \begin{itemize}
-        \item time constrainsts
+        \item time constraints
         \item highly dynamic environment
         \item \dots
       \end{itemize}
@@ -184,43 +184,43 @@ def channel(source: Boolean, target: Boolean, width: Double): Boolean = {
       \begin{itemize}
         \item complex parameter tuning
         \item complex definition in unknown environment
-        \item hard to use in non-stationary environment (when should i change the block implementations?)
+        \item hard to use in non-stationary environment (when should I change the block implementations?)
       \end{itemize}
     \end{itemize}
   \end{cardTiny}
-  \begin{card}[The gradient algorithm]
+  \begin{card}[The gradient algorithm~\cite{audrito2017ult}]
     \begin{itemize}
       \item A function mapping a Boolean field of sources to the field of minimum distances from those sources
       \begin{itemize}
         \item \emph{progressive}: they take time  to converge to the ``correct'' value
-        \item \emph{self-healing}: hey can adjust their output following changes in
+        \item \emph{self-healing}: they can adjust their output following changes in
         their inputs and the system topology
       \end{itemize}
       \item \highlight{Non-functionality} concerns:
       \begin{itemize}
-        \item convergence time \faArrowRight \, CRF, BIS, SVD
-        \item output smothness \faArrowRight \, Flex
+        \item convergence time \faArrowRight \, CRF, BIS, SVD~\cite{audrito2017ult}
+        \item output smoothness \faArrowRight \, Flex~\cite{audrito2017ult}
       \end{itemize}
     \end{itemize}
   \end{card}
-  \begin{card}[Proposed apporach: Program sketching / synthesis]
+  \begin{card}[Proposed approach: Program sketching~\cite{solar2008program} / synthesis]
     \begin{itemize}
-      \item Designers continue to used high-level block \& API
-      \item Part of programs contains \emph{holes} related to non-functional aspects
-      \item A Machine Learning algorithm fill these \emph{holes}
+      \item Designers continue to use high-level block \& API
+      \item Part of the programs contains \emph{holes} related to non-functional aspects
+      \item A Machine Learning algorithm fills these \emph{holes}
       \begin{itemize}
         \item following a non-functional specification (energy, time, message exchanged, \dots)
-        \item using raw experience (i.e., online continual learning) or through simulations \& data \faArrowRight \, adaptivity
+        \item using raw experience (i.e., online/continual learning) or through simulations \& data \faArrowRight \, adaptivity
       \end{itemize}
     \end{itemize}
   \end{card}
   \framebreak
   \begin{card}[Preliminary work: fill holes through experience with Q-Learning~\cite{aguzzi2022towards}]
     \begin{itemize}
-      \item Aggragate program evalaution combined with RL loop
-      \item During the evalaution, the missed part if refined with Q-Learning
+      \item Aggregate program evaluation combined with RL loop
+      \item During the evaluation, the missed part if refined with Q-Learning
       \item \highlight{Schema}: Centralised Traning / Decentralised Execution
-      \item \highlight{Future works}: policy generalization issues, deals with continous state/action, \dots
+      \item \highlight{Future works}: policy generalization issues, deals with continuous state/action, \dots
     \end{itemize}
   \end{card}
   \centering
@@ -245,19 +245,19 @@ def channel(source: Boolean, target: Boolean, width: Double): Boolean = {
         \item time-based
         \item reactive \faArrowRight \, depends on environment events (messages, sensors, \dots)
       \end{itemize}
-      \item Dynamic \faArrowRight \,  adapt the execution choices at
+      \item Dynamic \faArrowRight \,  adapts the execution choices at
       runtime depending
-      \item \emph{Programmable distributed schedulers} \faArrowRight \, an hand-crafted solution to manage collective program scheduling specification
-      \item \textbf{Vision} \faArrowRight \, dynamic scheduling via learning or evolutionary appraoch following \emph{high-level} system goals \faArrowRight towards \emph{green autonomic computing}
+      \item \emph{Programmable distributed schedulers}~\cite{danilo2021lmcs} \faArrowRight \, a hand-crafted solution to manage collective program scheduling specification
+      \item \textbf{Vision} \faArrowRight \, dynamic scheduling via learning or evolutionary approach following \emph{high-level} system goals \faArrowRight\, towards \emph{green autonomic computing}
     \end{itemize}
   \end{card}
   \begin{card}[Preliminary work: Addressing Collective Computations Efficiency through RL]
     \begin{itemize}
-      \item RL agent observe the output of a collective computation \emph{locally}
-      \item Reward function: try to maxisime the trend of between \emph{converge-time} and \emph{consumption}
-      \item Action: next-wake up time
+      \item RL agent observes the output of a collective computation \emph{locally}
+      \item Reward function: try to maximise the trend between \emph{converge-time} and \emph{consumption}
+      \item Action: next-wake-up time
       \item \highlight{Results}: agents eventually find policies that reduce \emph{the collective} power consumption
-      \item \emph{Future works}: more robust evelatuation, online learning, \dots
+      \item \emph{Future works}: more robust evaluation, online learning, \dots
     \end{itemize}
     \cardImg{img/image-rl-500-plain.pdf}{\textwidth}
   \end{card}
@@ -269,11 +269,11 @@ def channel(source: Boolean, target: Boolean, width: Double): Boolean = {
       \begin{cardTiny}
       \begin{itemize}
         \item Aggregate systems \faArrowRight \, logical network  of logical devices that perform rounds
-        \item Extremely flexible model \faArrowRight \, pulverised architecture 
+        \item Extremely flexible model \faArrowRight \, pulverised architecture~\cite{casadei2020pulverization}
         \item The same program could be executed in several deployment
         \begin{itemize}
-          \item Collective specification does not depends on concrete IT Networks
-          \item Enable opportunistic code movement (from edge to cloud and viceversa)
+          \item Collective specification does not depend on concrete IT Networks
+          \item Enable opportunistic code movement (from edge to cloud and vice versa)
         \end{itemize}
         \item[\failure{\faThumbsDown}] Complex deployment definition for a given goal (simulations)
         \item[\success{\faThumbsUp}] \textbf{Vision}: inject ML to let the system learns the effective deployment policy \faArrowRight \,  improving the efficacy and
@@ -292,7 +292,7 @@ def channel(source: Boolean, target: Boolean, width: Double): Boolean = {
   \begin{card}[Recap]
     \begin{itemize}
       \item Aggregate computing \faArrowRight \, effective approach to engineer Collective Intelligence
-      \item \highlight{Vision} \faArrowRight \, improve aggregate application (functional \& non-functioanal aspects) through learning:
+      \item \highlight{Vision} \faArrowRight \, improve aggregate application (functional \& non-functional aspects) through learning:
       \begin{itemize}
         \item Algorithms
         \item Execution strategies
@@ -301,7 +301,7 @@ def channel(source: Boolean, target: Boolean, width: Double): Boolean = {
       \end{itemize}
       \item Opportunities:
       \begin{itemize}
-        \item Automatic desing of CI
+        \item Automatic desing of CI~\cite{szuba2001formal}
         \item Green autonomic computing
       \end{itemize}
       \item Challenges
